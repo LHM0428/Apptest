@@ -12,7 +12,7 @@ public class MainActivity extends FragmentActivity {
     final String TAG = "MainActivity";
     int mCurrentFragmentIdx; // 현재 Fragment Index를 받는 인수;
     public final static int FRAGMENT_COVER = 0; // COVER Fragment 상수 0;
-
+//테스트
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
