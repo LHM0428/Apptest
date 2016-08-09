@@ -1,18 +1,20 @@
 package com.apptest.lee.apptest;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends FragmentActivity {
 
     final String TAG = "MainActivity";
     int mCurrentFragmentIdx; // 현재 Fragment Index를 받는 인수;
     public final static int FRAGMENT_COVER = 0; // COVER Fragment 상수 0;
-//테스트
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,13 @@ public class MainActivity extends FragmentActivity {
                 break;
         }
         return  newFragment;
+    }
+
+    public void imageClicked(View view){
+
+        Intent intent = new Intent(this,LoginActivity.class);
+        intent.putExtra("하아아이",true);
+        this.startActivity(intent);
     }
 
 }
