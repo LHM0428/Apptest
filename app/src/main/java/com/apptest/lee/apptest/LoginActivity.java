@@ -1,5 +1,6 @@
 package com.apptest.lee.apptest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginBtn = (Button) findViewById(R.id.loginBtn);
         joinBtn = (Button) findViewById(R.id.joinBtn);
 
+        idEdit = (EditText) findViewById(R.id.idEdit);
+        passEdit = (EditText) findViewById(R.id.passEdit);
+
         loginBtn.setOnClickListener(this);
         joinBtn.setOnClickListener(this);
     }
@@ -31,14 +35,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         System.out.println("onClick이심2");
 
         if (v.getId() == loginBtn.getId()) {
-           // Toast.makeText(v.getContext(), "으하?로그인 ㅂ튼", Toast.LENGTH_LONG).show();
+            //Toast.makeText(v.getContext(), "으하?로그인 ㅂ튼", Toast.LENGTH_LONG).show();
+
+            String id = idEdit.toString();
+            String pass = passEdit.toString();
+
+            String[] args = {id,pass};
 
 
+            DBManager dbManager = new DBManager(this);
+
+
+             String result = dbManager.printData();
+             Toast.makeText(v.getContext(), result, Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(this,MenuActivity.class);
+            this.startActivity(intent);
 
             //sql 모델을 호출!!한다는것?
-        } else if (v.getId() == joinBtn.getId()) {
-            Toast.makeText(v.getContext(), "이건 회원가입 버튼이지", Toast.LENGTH_LONG).show();
-
         }
 
     }
